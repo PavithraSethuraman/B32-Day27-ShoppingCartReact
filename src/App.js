@@ -73,13 +73,11 @@ function App() {
 
   const [cartitems, setCartItems] = useState([]);
   const [total, setTotal] = useState(0);
-  const [cartAdd, setCartAdd] = useState(0);
 
 //function for adding items to cart
   let handleCart = (item) => {
     setCartItems([...cartitems, item]);
     setTotal(total + item.price1);
-    setCartAdd(cartAdd + 1);
   };
 
 //function for removing item from cart
@@ -88,7 +86,6 @@ function App() {
     cartitems.splice(itemIndex, 1);
     setCartItems([...cartitems]);
     setTotal(total - item.price1);
-    setCartAdd(cartAdd - 1);
   };
 
   return (
@@ -161,7 +158,7 @@ function App() {
                 </div>
               </li>
             </ul>
-            <form className="d-flex">
+       
               <div className="btn btn-outline-dark p-1" >
                 <img
                   alt="_targer"
@@ -173,7 +170,7 @@ function App() {
                 Cart
                 <span className="badge bg-dark rounded-pill ms-2">
                   {" "}
-                  {cartAdd}{" "}
+                  {cartitems.length}{" "}
                 </span>
                 <hr/>
                 <ol className="list-group list-group-numbered">
@@ -198,7 +195,7 @@ function App() {
                   </div>
                 )}
               </div>
-            </form>
+           
           </div>
         </div>
       </nav>
